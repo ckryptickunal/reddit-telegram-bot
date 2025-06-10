@@ -17,6 +17,7 @@ TELEGRAM_TOKEN       = os.getenv("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID     = int(os.getenv("TELEGRAM_CHAT_ID"))
 
 SEEN_FILE = Path("seen_ids.json")
+user_name = os.getenv("user_name")
 
 # ─── 2. HELPER: load & save seen IDs ─────────────────────────────────────────
 
@@ -58,7 +59,7 @@ def main():
 
     while True:
         try:
-            for item in reddit.redditor("Still_View_7459").new(limit=10):
+            for item in reddit.redditor("user_name").new(limit=10):
                 if item.id not in seen:
                     seen.add(item.id)
 
