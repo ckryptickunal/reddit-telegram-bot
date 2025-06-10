@@ -5,14 +5,16 @@ from pathlib import Path
 import praw
 from praw.models import Comment, Submission
 from telegram import Bot
+import os
+
 
 # ─── 1. CONFIG ────────────────────────────────────────────────────
-REDDIT_CLIENT_ID     = "oGYrN56uFTY3m6AhpjktKw"
-REDDIT_CLIENT_SECRET = "9ijjg76hmxGMzLI6ymdd1ffCqY_dZA"
-REDDIT_USER_AGENT    = "script:WatcherIO:1.0 (by u/DeadCEO)"
+REDDIT_CLIENT_ID     = os.getenv("REDDIT_CLIENT_ID")
+REDDIT_CLIENT_SECRET = os.getenv("REDDIT_CLIENT_SECRET")
+REDDIT_USER_AGENT    = os.getenv("REDDIT_USER_AGENT")
 
-TELEGRAM_TOKEN   = "8057149543:AAFp9yLHuaXwsyEtBHu-2mkmn7uPQFSLHMw"
-TELEGRAM_CHAT_ID = 1405555907
+TELEGRAM_TOKEN       = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_CHAT_ID     = int(os.getenv("TELEGRAM_CHAT_ID"))
 
 SEEN_FILE = Path("seen_ids.json")
 
