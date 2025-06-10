@@ -1,9 +1,14 @@
-name: Run Reddit to Telegram Bot
+name: Bot on Fire
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # Every 1 minutes
-  workflow_dispatch:       # Allow manual runs
+    - cron: '*/1 * * * *'  # every minute
+  workflow_dispatch:
+
+# ← Add this block
+concurrency:
+  group: reddit-telegram-bot
+  cancel-in-progress: true
 
 jobs:
   run-script:
