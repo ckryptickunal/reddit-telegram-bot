@@ -70,14 +70,22 @@ def main():
                         excerpt = item.body[:200]
                         full_text = item.body
 
+                        submission = item.submission
+                        title = submission.title
+                        description = submission.selftext or "[No Description]"
+
                         print("\n🗨️  New Comment:\n" + "-"*50)
-                        print(full_text)
+                        print(f"Post Title      : {title}")
+                        print(f"Post Description: {description}")
+                        print(f"Comment         : {full_text}")
                         print(f"\n🔗 Link: {link}")
                         print("-"*50)
 
                         msg = (
                             f"🆕 New {kind}!\n\n"
-                            f"{full_text}\n\n"
+                            f"Post Title: {title}\n"
+                            f"Post Description: {description}\n"
+                            f"Comment: {full_text}\n\n"
                             f"{link}"
                         )
 
